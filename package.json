@@ -28,6 +28,7 @@
     "node-mailjet": "^6.0.4",
     "random-number": "^0.0.9",
     "request": "^2.88.2",
+    "resend": "^6.0.1",
     "socket.io": "^4.7.2",
     "uuid": "^9.0.1"
   },
