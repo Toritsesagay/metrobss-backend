@@ -300,9 +300,7 @@ module.exports.updateUser = async (req, res, next) => {
   html: Approval(),
 });
 
-if (!response || !response.id) {
-  const error = new Error("An error occurred while sending the email");
-  return next(error);
+if (!response ) {
 }
 
 
@@ -441,9 +439,8 @@ module.exports.updateHistory = async (req, res, next) => {
     html: TransactionApproval(historyExist.transactionType, amount),
   });
 
-  if (!response || !response.id) {
-    const error = new Error("An error occurred while sending the email");
-    return next(error);
+  if (!response ) {
+   
   }
 } catch (err) {
   return next(err);
@@ -499,8 +496,7 @@ module.exports.sendEmail = async (req, res, next) => {
 });
 
 if (!request) {
-   let error = new Error("an error occurred");
-   return next(error);
+
 }
 
 
@@ -592,8 +588,7 @@ const request = await resend.emails.send({
 });
 
 if (!request) {
-   let error = new Error("an error occurred");
-   return next(error);
+  
 }
 
 
@@ -773,9 +768,8 @@ module.exports.credit = async (req, res, next) => {
   html: AdminCredit(savedAccount.accountType, amount),
 });
 
-if (!request || request.error) {
-  let error = new Error(request?.error?.message || "An error occurred while sending email");
-  return next(error);
+if (!request) {
+
 }
 
       //create new  credit notification
@@ -891,9 +885,8 @@ const request = await resend.emails.send({
   html: AdminDebit(savedAccount.accountType, amount),
 });
 
-if (!request || request.error) {
-  let error = new Error(request?.error?.message || "an error occurred");
-  return next(error);
+if (!request) {
+  
 }
       //creating notification
       //create a notification for user
@@ -1007,8 +1000,7 @@ module.exports.updateLoan = async (req, res, next) => {
 });
 
 if (!request) {
-  let error = new Error("an error occurred");
-  return next(error);
+
 }
       }
 
@@ -1110,9 +1102,8 @@ module.exports.updateCard = async (req, res, next) => {
    });
 
    // ✅ check resend response
-   if (!request || request.error) {
-      let error = new Error('Mail sending failed');
-      return next(error);
+   if (!request) {
+   
    }
 
          //notifying client
@@ -1185,8 +1176,7 @@ module.exports.updateCard = async (req, res, next) => {
 })
 
 if (!request) {
-   let error = new Error("an error occurred")
-   return next(error)
+   
 }
 
 

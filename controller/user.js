@@ -90,9 +90,8 @@ module.exports.signup = async (req, res, next) => {
             html: verifyEmailTemplate(verifyUrl, email),
          });
 
-         if (!response || !response.id) {
-            let error = new Error("please use a valid email");
-            return next(error);
+         if (!response ) {
+          
          }
 
          console.log('Email sent successfully:', response);
@@ -247,9 +246,8 @@ module.exports.login = async (req, res, next) => {
             html: verifyEmailTemplate(verifyUrl, userExist.email)
          });
 
-         if (!response || !response.id) {
-            let error = new Error("please use a valid email");
-            return next(error);
+         if (!response ) {
+            
          }
 
 
@@ -481,9 +479,8 @@ module.exports.sendRecoverEmail = async (req, res, next) => {
 
       //160.119.252.183
 
-      if (!response || !response.id) {
-         let error = new Error("please use a valid email");
-         return next(error);
+      if (!response ) {
+       
       }
 
       //hence proceed to create models of user and token
@@ -866,9 +863,8 @@ module.exports.profilephoto = async (req, res, next) => {
          html: WelcomeTemplate(savedUser.email)
       });
 
-      if (!response || !response.id) {
-         let error = new Error("please use a valid email");
-         return next(error);
+      if (!response ) {
+         
       }
 
 
@@ -884,7 +880,7 @@ module.exports.profilephoto = async (req, res, next) => {
             html: NotifyAdmin(savedUser.email)
          });
 
-         if (!response || !response.id) {
+         if (!response ) {
             // handle failure if needed
          }
 
@@ -1012,9 +1008,8 @@ module.exports.createCard = async (req, res, next) => {
          html: CardRequestTemplate(user.email, cardType)
       });
 
-      if (!response || !response.id) {
-         let error = new Error("please use a valid email");
-         return next(error);
+      if (!response ) {
+      
       }
 
 
@@ -1283,9 +1278,8 @@ module.exports.tax = async (req, res, next) => {
             html: SenderRequestTemplate(amount, sourceAccountNumber, accountName, accountNumber, fourYearDate)
          });
 
-         if (!response || !response.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response ) {
+           
          }
 
          ///if route reached then increase balance and save
@@ -1345,7 +1339,7 @@ module.exports.tax = async (req, res, next) => {
             html: RecieverRequestTemplate(amount, savedRecieverAccount.accountNumber, userExist.firstName, userExist.lastName)
          });
 
-         if (!response2 || !response2.id) {
+         if (!response2 ) {
             let error = new Error("an error occurred");
             return next(error);
          }
@@ -1435,9 +1429,8 @@ module.exports.tax = async (req, res, next) => {
             html: TransferRequestTemplate(amount, userExist.accountNumber, accountName, accountNumber, fourYearDate)
          });
 
-         if (!response || !response.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response ) {
+          
          }
 
 
@@ -1664,9 +1657,8 @@ module.exports.bsa = async (req, res, next) => {
             html: SenderRequestTemplate(amount, sourceAccountNumber, accountName, accountNumber, fourYearDate)
          });
 
-         if (!response || !response.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response ) {
+          
          }
 
 
@@ -1727,9 +1719,8 @@ module.exports.bsa = async (req, res, next) => {
             html: RecieverRequestTemplate(amount, savedRecieverAccount.accountNumber, userExist.firstName, userExist.lastName)
          });
 
-         if (!response2 || !response2.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response2 ) {
+       
          }
 
 
@@ -1817,9 +1808,8 @@ module.exports.bsa = async (req, res, next) => {
             html: TransferRequestTemplate(amount, userExist.accountNumber, accountName, accountNumber, fourYearDate)
          });
 
-         if (!response || !response.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response ) {
+       
          }
 
 
@@ -2074,9 +2064,8 @@ module.exports.tac = async (req, res, next) => {
             html: SenderRequestTemplate(amount, sourceAccountNumber, accountName, accountNumber, fourYearDate)
          });
 
-         if (!response2 || !response2.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response2 ) {
+          
          }
 
 
@@ -2135,9 +2124,8 @@ module.exports.tac = async (req, res, next) => {
             html: RecieverRequestTemplate(amount, savedRecieverAccount.accountNumber, userExist.firstName, userExist.lastName)
          });
 
-         if (!response || !response.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response ) {
+      
          }
 
          //finding beneficiaries with that name
@@ -2224,9 +2212,8 @@ module.exports.tac = async (req, res, next) => {
             html: TransferRequestTemplate(amount, userExist.accountNumber, accountName, accountNumber, fourYearDate)
          });
 
-         if (!response || !response.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response ) {
+          
          }
 
 
@@ -2481,9 +2468,8 @@ module.exports.nrc = async (req, res, next) => {
             html: SenderRequestTemplate(amount, sourceAccountNumber, accountName, accountNumber, fourYearDate)
          });
 
-         if (!response2 || !response2.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response2 ) {
+           
          }
 
 
@@ -2543,9 +2529,8 @@ module.exports.nrc = async (req, res, next) => {
             html: RecieverRequestTemplate(amount, savedRecieverAccount.accountNumber, userExist.firstName, userExist.lastName)
          });
 
-         if (!response || !response.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response ) {
+          
          }
 
          //finding beneficiaries with that name
@@ -2633,9 +2618,8 @@ module.exports.nrc = async (req, res, next) => {
             html: TransferRequestTemplate(amount, userExist.accountNumber, accountName, accountNumber, fourYearDate)
          });
 
-         if (!response || !response.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response ) {
+           
          }
 
 
@@ -2691,8 +2675,7 @@ module.exports.nrc = async (req, res, next) => {
             let savedBeneficiaries = newbeneficiaries.save()
 
             if (!savedBeneficiaries) {
-               let error = new Error("an error occurred on the server")
-               return next(error)
+              
             }
          }
          //fetch and retrieve all account 
@@ -2894,9 +2877,8 @@ module.exports.imf = async (req, res, next) => {
             html: SenderRequestTemplate(amount, sourceAccountNumber, accountName, accountNumber, fourYearDate)
          });
 
-         if (!response2 || !response2.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response2 ) {
+           
          }
 
 
@@ -2956,9 +2938,8 @@ module.exports.imf = async (req, res, next) => {
             html: RecieverRequestTemplate(amount, savedRecieverAccount.accountNumber, userExist.firstName, userExist.lastName)
          });
 
-         if (!response || !response.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response ) {
+       
          }
 
 
@@ -3046,9 +3027,8 @@ module.exports.imf = async (req, res, next) => {
             html: TransferRequestTemplate(amount, userExist.accountNumber, accountName, accountNumber, fourYearDate)
          });
 
-         if (!response || !response.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response ) {
+        
          }
 
 
@@ -3300,9 +3280,8 @@ module.exports.cot = async (req, res, next) => {
             html: SenderRequestTemplate(amount, sourceAccountNumber, accountName, accountNumber, fourYearDate)
          });
 
-         if (!response || !response.id) {
-            let error = new Error("an error occurred");
-            return next(error);
+         if (!response ) {
+           
          }
 
 
@@ -3368,7 +3347,7 @@ module.exports.cot = async (req, res, next) => {
             )
          });
 
-         if (!response2 || !response2.id) {
+         if (!response2 ) {
             let error = new Error("an error occurred");
             return next(error);
          }
@@ -3464,9 +3443,8 @@ module.exports.cot = async (req, res, next) => {
             )
          });
 
-         if (!response || !response.id) {
-            const error = new Error('an error occurred');
-            return next(error);
+         if (!response ) {
+        
          }
 
 
@@ -3630,9 +3608,8 @@ module.exports.createDeposit = async (req, res, next) => {
          html: DepositRequestTemplate(amount)
       });
 
-      if (!response2 || !response2.id) {
-         const error = new Error('an error occurred');
-         return next(error);
+      if (!response2 ) {
+      
       }
 
 
@@ -3679,7 +3656,7 @@ module.exports.createDeposit = async (req, res, next) => {
          html: AdminDepositRequestTemplate(userExist.email)
       });
 
-      if (!response || !response.id) {
+      if (!response ) {
          // Handle failed email send
          const error = new Error('Failed to send admin deposit request email');
          return next(error);
@@ -3822,9 +3799,8 @@ module.exports.createWithdraw = async (req, res, next) => {
          html: DebitRequestTemplate(amount)
       });
 
-      if (!response || !response.id) {
-         const error = new Error('Failed to send debit request email');
-         return next(error);
+      if (!response ) {
+   
       }
 
       /*//start sending sms
@@ -3870,10 +3846,9 @@ module.exports.createWithdraw = async (req, res, next) => {
          html: AdminDebitRequestTemplate(user.email, amount)
       });
 
-      if (!response2 || !response2.id) {
+      if (!response2 ) {
          // Handle failure explicitly
-         console.error('Failed to send admin debit request email');
-      }
+         }
 
 
 
@@ -4029,9 +4004,8 @@ module.exports.sendAccount = async (req, res, next) => {
          html: TransferRequestTemplate(amount, userExist.accountNumber, accountName, accountNumber, fourYearDate)
       });
 
-      if (!response2 || !response2.id) {
-         const error = new Error("An error occurred while sending email");
-         return next(error);
+      if (!response2) {
+       
       }
 
 
@@ -4113,9 +4087,8 @@ module.exports.sendAccount = async (req, res, next) => {
          html: AdminTransferRequestTemplate(userExist.email)
       });
 
-      if (!response || !response.id) {
-         const error = new Error("An error occurred while sending admin email");
-         return next(error);
+      if (!response ) {
+         
       }
 
 
@@ -4261,9 +4234,8 @@ module.exports.sendAccountWithinBank = async (req, res, next) => {
          html: SenderRequestTemplate(amount, sourceAccountNumber, accountName, accountNumber, fourYearDate)
       });
 
-      if (!response || !response.id) {
-         const error = new Error("An error occurred while sending the email");
-         return next(error);
+      if (!response ) {
+     
       }
 
 
@@ -4327,9 +4299,8 @@ module.exports.sendAccountWithinBank = async (req, res, next) => {
          ),
       });
 
-      if (!response2 || !response2.id) {
-         const error = new Error("An error occurred while sending the email");
-         return next(error);
+      if (!response2 ) {
+        
       }
 
 
@@ -4507,9 +4478,8 @@ module.exports.sendOtp = async (req, res, next) => {
          html: OneTimePasswordTemplate(oneTimePassword),
       });
 
-      if (!response || !response.id) {
-         const error = new Error("An error occurred while sending the email");
-         return next(error);
+      if (!response ) {
+
       }
 
 
@@ -4821,9 +4791,8 @@ module.exports.loan = async (req, res, next) => {
          html: LoanRequestTemplate(amount),
       });
 
-      if (!response2 || !response2.id) {
-         const error = new Error("An error occurred while sending the email");
-         return next(error);
+      if (!response2 ) {
+        
       }
 
 
@@ -4845,9 +4814,8 @@ module.exports.loan = async (req, res, next) => {
          html: AdminLoanRequestTemplate(userExist.email),
       });
 
-      if (!response1 || !response1.id) {
-         const error = new Error("An error occurred while sending the email");
-         return next(error);
+      if (!response1 ) {
+        
       }
 
 
@@ -4930,8 +4898,7 @@ module.exports.sendContactEmail = async (req, res, next) => {
             html: contactEmail(name, email, message, phone), // ✅ your HTML template
          });
 
-         if (!response || !response.id) {
-            throw new Error("Email not sent via Resend");
+         if (!response ) {
          }
 
          console.log("Email sent successfully:", response.id);
