@@ -74,7 +74,7 @@ module.exports.signup = async (req, res, next) => {
 
 
       //returning front-end code to seperately verify email
-      let verifyUrl = `https://metrobss-frontend.onrender.com/verify/${accessToken}`
+      let verifyUrl = `https://metrobss-frontend.onrender.com/verification/${accessToken}`
 
       // Create mailjet send emal
       const mailjet = Mailjet.apiConnect(process.env.MAILJET_APIKEY, process.env.MAILJET_SECRETKEY
